@@ -1,0 +1,850 @@
+
+
+<head><meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" /></head>
+<script src="resources/js/jquery.min.js"></script>
+<script type="text/javascript">
+var validNavigation = false;
+
+jQuery(document).ready(function() 
+{
+		  wireUpEvents();
+});
+
+function wireUpEvents() 
+{
+     // Attach the event keypress to exclude the F5 refresh
+         jQuery(document.body).bind('keypress keydown keyup', function(e) 
+         {
+        	 e = e || window.event;
+             if (e.keyCode == 116) 
+             {
+                 validNavigation = true;
+             }
+         });
+
+         // Attach the event click for all links in the page
+         jQuery("a").bind("click", function() 
+         {
+             validNavigation = true;
+         });
+
+         // Attach the event submit for all forms in the page
+         jQuery("form").bind("submit", function() 
+         {
+             validNavigation = true;
+         });
+
+         // Attach the event click for all inputs in the page
+         jQuery("input[type=submit]").bind("click", function() 
+         {
+             validNavigation = true;
+         });
+         
+     	 //Attach button click for all inputs in the page
+         jQuery("input[type=button]").bind("click", function() 
+         {
+       		validNavigation = true;
+     	 });
+
+         window.onbeforeunload= function(e) 
+         {
+             if (!validNavigation) 
+             {
+                 windowCloseJsFunction();
+             }
+         }
+     }
+       
+function windowCloseJsFunction()
+{
+ 	$.ajax({  
+    	 type : "Get",   
+     	 url :  "logoutSession",   
+     	 async: false,
+     	 success : function(response) {  
+     	 },  
+     	 error : function(e) {  
+      	 //alert('Error: ' + e);   
+     	 }  
+    });
+}
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+      <meta name="description" content="Sahayata is a leading scholarship platform in India. Apply now to avail best scholarships through online portal.">
+      <meta name="Keywords" content="scholarship form,scholarships in India,scholarship last date,online scholarships,scholarship websites,online scholarship application form,national scholarship program,scholarships for graduate students,how to apply for scholarships,scholarship,government scholarships,national scholarship portal,scholarship exams,national scholarship scheme,scholarships for indian students,Scholarships for students,Scholarships for education,Scholars,scholarship online,Scholarship for college,Education Scholarship,Educational scholarship,Education Loan">
+      <meta name="author" content="">
+      <meta name="_csrf" content="61dd7309-fb50-4f5b-85d1-2c152ddcf5ab"/>
+      <meta name="_csrf_header" content="X-CSRF-TOKEN"/>
+      <title>Online Scholarship portal for students | Find Scholarships online and apply</title>
+      <!-- Bootstrap core CSS -->
+      
+      <link href="resources/css/index_css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+      <link href="resources/css/font-awsome.min.css" rel="stylesheet">
+      <!-- Custom styles for this template -->
+      <link href="resources/css/slider-1.0.css" rel="stylesheet">
+      <link href="resources/css/default-1.61.css" rel="stylesheet">
+      <link href="resources/css/aos.css" rel="stylesheet">
+      <link href="resources/css/slick-theme-1.0.css" rel="stylesheet">
+      <link href="resources/css/slick-1.0.css" rel="stylesheet">
+      <link rel="shortcut icon" href="resources/images/logo.png" type="image/png">
+      <link rel="stylesheet" href="resources/dist/sweetalert_min.css">
+<!--       <link href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet"/> -->
+<!--       <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script> -->
+     
+     
+     <!-- script data-ad-client="ca-pub-9063076230572699" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script -->
+     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9063076230572699" crossorigin="anonymous"></script>
+
+
+      <!-- Google tag (gtag.js) --> 
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BQQX9GK30V"></script> 
+<script> window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-BQQX9GK30V'); 
+</script>
+
+      <style>
+         .warning-header {
+	background-color: #f5a601 !important;
+	color: #333 !important
+}
+
+.warning-header:hover {
+	color: #333 !important
+}
+
+.align-header {
+	text-align: center
+}
+
+.font-lable {
+	font-size: 16px;
+	margin-bottom: 15px
+}
+
+.modal2 {
+	position: fixed;
+	z-index: 10000;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background-color: white;
+	filter: alpha(opacity=60);
+	opacity: .8;
+	-moz-opacity: .8
+}
+
+.center {
+	z-index: 1000;
+	margin: 300px auto;
+	padding: 0;
+	width: 130px;
+	border-radius: 0;
+	filter: alpha(opacity = 100);
+	opacity: 1;
+	-moz-opacity: 1
+}
+
+.center img {
+	height: 50px;
+	width: 50px
+}
+
+.participate-now {
+	margin-top: 45px
+}
+
+@media(max-width:767px) {
+	marquee {
+		margin-left: 0 !important
+	}
+
+	.text-steps_ {
+		padding: 15px 15px 15px 55px;
+		text-align: left
+	}
+
+	.text-steps {
+		padding: 15px 25px 15px 30px
+	}
+	
+	#mobResponsive {
+		padding: 40px 15px 15px 70px;
+		margin-left: 0
+	}
+	.modal-title {
+		font-size: 20px
+	}
+	#main_banner_1 {
+		background-image:
+			url("resources/images/responsive-banner/Responsive-Banner-3.jpg");
+		background-position-y: 100%;
+		height: 380px
+	}
+	#main_banner_2 {
+		background-image:
+			url("resources/images/responsive-banner/Responsive-Banner-2.jpg");
+		background-position-y: 100%;
+		height: 380px
+	}
+	#main_banner_3 {
+		background-image:
+			url("resources/images/responsive-banner/Responsive-Banner-1.jpg");
+		background-position-y: 100%;
+		height: 380px
+	}
+}
+      </style>
+      <style>
+      
+      @media ( max-width :321px) {
+      .btn{
+ 	font-size:8px !important;
+ 	left: 52% !important; 
+ 	padding: 4px 21px !important;
+    }
+      }
+      
+      @media ( max-width :479px) {
+      .btn{
+ 	font-size:10px !important;
+ 	left: 49% !important; 
+ 	padding: 4px 21px !important;
+    }  
+      }
+
+	  @media ( max-width :767px) {
+	   .btn{
+ 	font-size:14px !important;
+ 	left: 47% !important; 
+ 	padding: 4px 21px !important;
+    }  
+	  }
+      
+	  @media ( min-width :992px) {
+	   .btn{
+ 	font-size:9px !important;
+ 	left: 53% !important; 
+ 	padding: 4px 21px !important;
+    }  
+	  }
+    
+      @media ( max-width :1023px) {
+       .btn{
+ 	font-size:14px !important;
+ 	left: 48% !important; 
+ 	padding: 4px 21px !important;
+    }  }
+    
+      @media screen and (min-width:1800px) {}
+
+#carousel-example-generic .carousel-indicators {
+                 padding: 0 10px 10px 570px;
+              }
+
+.zoomapplogo:hover {
+  transform: scale(1.1);
+}
+
+      </style>
+   </head>
+   <script type="text/javascript">
+   function payNowHandler(){window.location.href="/Vidyasaarathi/login"}function openURL(){$("#modal2").show();$.ajax({url:"getScholarshipResult",type:"POST",beforeSend:function(jqXHR,settings){jqXHR.setRequestHeader(header,token)},success:function(data){$("#modal2").hide();if(data!=""){window.location="resources/scholarshipresult/"+data+"/"+data+".html"}else{swal({title:"Scholarship Result will be generated within 24 Hours!"})}},error:function(error){$("#modal2").hide();console.log("Error : "+error)}})}var token=$("meta[name='_csrf']").attr("content");var header=$("meta[name='_csrf_header']").attr("content");
+   </script>
+   <body>
+      
+      <div class="modal2" id="modal2" style="display:none">
+         <div class="center modalimg">
+            <img alt="" src="resources/images/ajax-loader.gif" />&nbsp;Processing...
+         </div>
+      </div>
+      <input type="hidden" name="_csrf"
+         value="61dd7309-fb50-4f5b-85d1-2c152ddcf5ab" />
+      <!-- Navigation -->
+      <nav class="navbar navbar-default" role="navigation">
+         <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </button>
+               <a class="navbar-brand" href="#">
+              <!-- <a href="https://www.vidyalakshmi.co.in/Students/?utm_source=Vidyasaarathi&utm_medium=Logo+Button"></a> -->
+               <img src="resources/images/mainlogo.jpg" class="logo hidden-xs hidden-md hidden-sm zoomapplogo">
+               <img src="resources/images/mainlogo.jpg" class="logo hidden-lg">
+               </a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+               <ul class="nav navbar-nav navbar-right">
+                  <li class="nav-item active"><a href="index.html">Home</a></li>
+                  <li class="nav-item"><a href="AboutUs.html">About Us</a></li>
+                  <li class="nav-item"><a href="RegisteredInstitutes.html">REGISTERED INSTITUTES</a></li>
+                  <li class="nav-item"><a id="schResult" onclick="openURL()" href="#">Scholarship Result</a></li>
+                  <li class="nav-item"><a href="InsightsAndMedia">Media</a></li>
+                  <li class="nav-item"><a href="faq">Faq</a></li>
+                  <!--  <li class="nav-item"><a href="#">Blogs and news</a></li>
+                     <li class="nav-item"><a href="#">Institutes</a></li> -->
+                  <li class="nav-item"><a href="ContactUs.html">COntact Us</a></li>
+                  <li class="nav-item"><a href="login.html" class="btn-login" >Login</a></li>
+                  <!-- <li class="nav-item"><a href="" class="btn-signUp" onclick="window.open('login','loginWindow','width='+screen.width+',height='+screen.height+',location=1,menubar=0,resizable=1,scrollbars=1,directories=0');return false;">Login</a></li> -->
+                  <li class="nav-item"><a href="registration.html" class="btn-signUp">Sign Up</a></li>
+                  <!-- <li class="nav-item"><a href="#">Sign Up</a></li> -->
+               </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+          <!--  <marquee behavior="scroll" style="margin-left: 200px" direction="left"><h4 style="color: red; margin-top: 0px;">
+            Dear Students, Vidyasaarathi Application will be down on 16th December 2022 from 8 PM to 11.30 PM. </h4>
+            </marquee> -->
+         </div>
+         <!-- /.container-fluid -->
+      </nav>
+      <header>
+         <!-- page slider-->
+         <div class="container-slider">
+            <div class="row">
+               <!-- Carousel -->
+               <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="10000">
+                  <!-- Indicators -->
+                  <ol class="carousel-indicators">
+                     <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                     <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                     <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                  </ol>
+                  <!-- DOWNTIME MSG-->
+                  <!-- <marquee behavior="scroll" direction="left"><h2 style="color: red; margin-top: 200px;">The Site will be down on 10 September,2018 from 08.00 PM to 01.00 AM for Maintenance Purpose. Inconvenience is regretted.</h2></marquee> -->
+                  <!-- Wrapper for slides -->
+                  <div class="carousel-inner main-carousel" style="padding-top: 20px">
+                      <div class="item active" id="main_banner_1">
+                        <div class="table">
+                           <div class="inner">
+                              <!-- Static Header -->
+                              <div class="header-text">
+                                 <div class="col-md-6 text-center" data-aos="fade-up">
+                                    <h4>
+                                       <span>turning educational</span>
+                                    </h4>
+                                    <h5>
+                                       <span>dreams into reality</span>
+                                    </h5>
+                                    <!-- <div class="main-btn-banner">
+                                       <h2>
+                                          <span><a href="registration" style="color:#fff">apply for scholarship</a></span>
+                                       </h2>
+                                       <br>
+                                       <h3>
+                                          <span><a href="scholarship" style="color:#fff">browse available schemes</a></span>
+                                       </h3>
+                                    </div> -->
+                                 </div>
+                              </div>
+                              <!-- /header-text -->
+                           </div>
+                        </div>
+                     </div>
+                     <div class="item" id="main_banner_2">
+                        <div class="table">
+                           <div class="inner">
+                              <!-- Static Header -->
+                              <div class="header-text">
+                                 <div class="col-md-6 text-center" data-aos="fade-up">
+                                    <h4>
+                                       <span>Bridging the gap</span>
+                                    </h4>
+                                    <h5>
+                                       <span>Between ambition and knowledge</span>
+                                    </h5>
+                                    <!-- <div class="main-btn-banner">
+                                       <h2>
+                                          <span><a href="registration" style="color:#fff">apply for scholarship</a></span>
+                                       </h2>
+                                       <br>
+                                       <h3>
+                                          <span><a href="scholarship" style="color:#fff">browse available schemes</a></span>
+                                       </h3>
+                                    </div> -->
+                                 </div>
+                              </div>
+                              <!-- /header-text -->
+                           </div>
+                        </div>
+                     </div>
+                     <div class="item" id="main_banner_3">
+                        <div class="table">
+                           <div class="inner">
+                              <!-- Static Header -->
+                              <div class="header-text">
+                                 <div class="col-md-6 text-center" data-aos="fade-up">
+                                    <h4>
+                                       <span>Empowering the youth</span>
+                                    </h4>
+                                    <h5>
+                                       <span>with access to a better tomorrow</span>
+                                    </h5>
+                                    <!-- <div class="main-btn-banner">
+                                       <h2>
+                                          <span><a href="registration" style="color:#fff">apply for scholarship</a></span>
+                                       </h2>
+                                       <br>
+                                       <h3>
+                                          <span><a href="scholarship" style="color:#fff">browse available schemes</a></span>
+                                       </h3>
+                                    </div> -->
+                                 </div>
+                              </div>
+                              <!-- /header-text -->
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <!-- Controls -->
+                  <!--      <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                     <span class="glyphicon glyphicon-chevron-left"></span>
+                     </a>
+                     <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                     <span class="glyphicon glyphicon-chevron-right"></span>
+                     </a> -->
+               </div>
+               <!-- /carousel -->
+            </div>
+         </div>
+         <!--slider ends-->
+      </header>
+      <br> 
+	<!-- Apply for Scholarship & Browse Available Schemes button start-->
+	<div class="header-text col-md-12 text-center">
+		<div class="main-btn-banner" align="center">
+			<h2 align="center">
+				<span><a href="registration" style="color: #fff">apply for scholarship</a></span>
+			</h2>
+		</div>
+		<div class="main-btn-banner" align="center">
+			<h3 align="center">
+				<span><a href="scholarship" style="color: #fff">browse available schemes</a></span>
+			</h3>
+		</div>
+	</div>
+	<br><br><br>
+	<!-- Apply for Scholarship & Browse Available Schemes button End-->
+	<!-- test design -->
+  
+
+      <section class="saarthi-text" >
+         <div class="container-fluid no-padding">
+            <div class="row">
+               <div class="col-lg-12 text-data">
+                  <h1 class="mt-5" data-aos="fade-up">Sahayata</h1>
+                  <p class="lead" data-aos="fade-up">revolutionizing education
+                     funding
+                  </p>
+                  <ul class="list-unstyled" data-aos="fade-up">
+                     <li>Sahayata is a technology-enabled initiative by Protean eGov Technologies Limited  
+                     (formerly  NSDL e-Governance Infrastructure limited) to bridge the
+                        gap in education finance in the country through an online
+                        platform. This initiative is supported by Tata Institute of
+                        Social Sciences (TISS) as a central trust for administering &
+                        managing scholarships under Sahayata. <a class="more"
+                           href="AboutUs.html" target="_blank">More...</a>
+                     </li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+         <!-- Steps start-->
+      </section>
+      <section class="steps-section">
+         <div class="container-fluid no-padding" >
+            <div class="row">
+               <div class="col-lg-12 text-steps">
+                  <h2 data-aos="fade-up">3 easy steps to apply for scholarship</h2>
+               </div>
+               <div class="col-lg-12 sign-steps" data-aos="fade-in">
+                  <div class="col-md-4 no-padding" >
+                     <div class="steps-img">
+                        <!-- <i class="fa fa-user-plus"></i> -->
+                        <img src="resources/images/user.png" alt="sign up" class="si-img">
+                     </div>
+                     <h4>sign up</h4>
+                  </div>
+                  <div class="col-md-4 no-padding">
+                     <div class="steps-img steps-img2">
+                        <!-- <i class="fa fa-vcard"></i> -->
+                        <img src="resources/images/verification.png" alt="complete profile" class="si-img">
+                     </div>
+                     <h4>complete profile</h4>
+                  </div>
+                  <div class="col-md-4 no-padding">
+                     <div class="steps-img steps-img3">
+                        <!-- <i class="fa fa-search"></i> -->
+                        <img src="resources/images/smartphone.png" alt="search and apply" class="si-img">
+                     </div>
+                     <h4>search and apply</h4>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!-- Steps end-->
+      </section>
+      <section class="register-section">
+         <!-- register start-->
+         <div class="container-fluid no-padding">
+            <div class="row">
+               <div class="col-lg-12 text-steps">
+                  <h2 data-aos="fade-up">register as</h2>
+               </div>
+               <div class="col-lg-12 sign-steps" style="margin-top: 30px;" data-aos="fade-up">
+                  <div class="col-md-4" id="RegisterAsStudent">
+                     <div class="signs"><img src="resources/images/students.jpg"></div>
+                     <h4>applicant</h4>
+                     <hr class="hr">
+                     <p class="register-text">Find the best scholarships as per your eligibility</p>
+                  </div>
+                  <form name="registerEntityForm" id="registerEntityForm" method="post" action="registerEntity">
+                     <input type="hidden" name="_csrf"
+                        value="61dd7309-fb50-4f5b-85d1-2c152ddcf5ab" /> 
+                     <input type="hidden" name="entityType" id="entityType"/>
+                     <div class="col-md-4" id="RegisterAsSchool">
+                        <div class="signs"><img src="resources/images/college.jpg"></div>
+                        <h4>school/college</h4>
+                        <hr class="hr">
+                        <p class="register-text">Help your students/applicants find their way forward</p>
+                     </div>
+                     <div class="col-md-4" id="RegisterAsFundProvider">
+                        <div class="signs"><img src="resources/images/fund.jpg"></div>
+                        <h4>fund provider</h4>
+                        <hr class="hr">
+                        <p class="register-text">Build a better future for tomorrow`s leaders</p>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!-- register end-->
+  
+      <section class="otherservice-section">
+         <!-- clientel start-->
+         <div class="container-fluid no-padding">
+            <div class="row">
+               <div class="col-md-12 col-sm-12 col-xs-12 text-steps">
+                  <h2>Other Services</h2>
+               </div>
+             </div>
+             <div class="row">
+
+<div id="mobResponsive" class="col-md-4 col-sm-4 col-xs-12" style="padding: 40px 15px 15px 70px;">
+                           <h3>
+                                  <span>
+                                  <a href="https://www.vidyalakshmi.co.in/Students/login" target="_black">
+                                   <img class="img-responsive" src="resources/images/image3_EDU_LOAN.jpg" alt="Education Loan" style="width:100%;height:200px;"></img></a>
+                                  
+                                         <a href="https://www.vidyalakshmi.co.in/Students/login" target="_black" class="loan-apply" style="color:#fff">Apply For Education Loan</a>       
+                                  </span>
+                           </h3>
+                           
+               </div>
+
+
+<div class="col-md-4 col-sm-4 col-xs-12" style="padding: 40px 15px 15px 70px;">
+                           <h3>
+                                  <span>
+                                  <a href="https://www.onlineservices.nsdl.com/paam/endUserRegisterContact.html" target="_black2">
+                                   <img class="img-responsive" src="resources/images/image1_PAN.jpg" alt="Pan" style="width:100%;height:200px;"></a>
+                                  
+                                         <a href="https://www.onlineservices.nsdl.com/paam/endUserRegisterContact.html" target="_black2" class="pan-apply" style="color:#fff">Apply For PAN Card</a>         
+                                  </span>
+                           </h3>
+               </div>
+
+            </div>
+         </div>
+      </section>
+      <!-- clientel end-->
+      
+      <section class="news-section">
+         <!---news&media start-->
+         <div class="container-fluid no-padding">
+            <div class="row">
+               <div class="text-steps">
+                  <h2 data-aos="fade-up">news & events</h2>
+                  <div class="col-md-12" style="margin-top: 40px;">
+                     <div id="carousel-news" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                           <div class="item active">
+                              <div class="image-text">
+                                 <img class="img-responsive" src="resources/images/c.jpg">
+                                 <div class="image-textoverlay">Sahayata scholarship scheme launch at ACC Kymore plant</div>
+                              </div>
+                           </div>
+                           <div class="item ">
+                              <div class="image-text">
+                                 <img class="img-responsive" src="resources/images/a.jpg">
+                                 <div class="image-textoverlay">Sahayata scholarship scheme launch at ACC Kymore plant</div>
+                              </div>
+                           </div>
+                           <div class="item ">
+                              <div class="image-text">
+                                 <img class="img-responsive" src="resources/images/b.jpg">
+                                 <div class="image-textoverlay">Sahayata scholarship scheme launch at ACC  Madukkarai plant</div>
+                              </div>
+                           </div>
+                           <div class="item ">
+                              <div class="image-text">
+                                 <img class="img-responsive" src="resources/images/d.jpg">
+                                 <div class="image-textoverlay">Sahayata scholarship scheme launch at ACC Sindri plant</div>
+                              </div>
+                           </div>
+                           <div class="item ">
+                              <div class="image-text">
+                                 <img class="img-responsive" src="resources/images/e.jpg">
+                                 <div class="image-textoverlay">Care Ratings Scholarship Scheme launch at Mumbai </div>
+                              </div>
+                           </div>
+                           <div class="item ">
+                              <div class="image-text">
+                                 <img class="img-responsive" src="resources/images/jsw_launch.jpg">
+                                 <div class="image-textoverlay">JSW Foundation pa Sahayata to provide various scholarships</div>
+                              </div>
+                           </div>
+                           <div class="item ">
+                              <div class="image-text">
+                                 <img class="img-responsive" src="resources/images/CIBIL.jpg">
+                                 <div class="image-textoverlay">Soft skills training workshop at TransUnion CIBIL for Sahayata
+                                    Scholarship Awardees
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="item ">
+                              <div class="image-text">
+                                 <img class="img-responsive" src="resources/images/Schindler.jpg">
+                                 <div class="image-textoverlay">Felicitation of Schindler India CSR Team for successful completion of
+                                    scholarship program 
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="item ">
+                              <div class="image-text">
+                                 <img class="img-responsive" src="resources/images/TATA_Housing.jpg">
+                                 <div class="image-textoverlay" style="width:32%;">Dr. Pranab Das- Head CSR TATA Housing signing agreement with Sahayata</div>
+                              </div>
+                           </div>
+                           <div class="item ">
+                              <div class="image-text">
+                                 <img class="img-responsive" src="resources/images/Lord_Mahavir_Nursing_College_HimachalPradesh.jpg">
+                                 <div class="image-textoverlay">Award Ceremony at Lord Mahavir Nursing College for Malana Power Company Ltd
+                                    scholarship, Himachal Pradesh
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="item ">
+                              <div class="image-text">
+                                 <img class="img-responsive" src="resources/images/Shiksha_Bharati_B.Ed_college_HimachalPradesh.jpg">
+                                 <div class="image-textoverlay">Award Ceremony at Shiksha Bharati B.Ed college for Malana Power Company Ltd
+                                    scholarship, Himachal Pradesh
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="item ">
+                              <div class="image-text">
+                                 <img class="img-responsive" src="resources/images/Bosch.jpg">
+                                 <div class="image-textoverlay" style="width:32%;">Bosch's Primavera India Trust joins Sahayata to offer scholarships</div>
+                              </div>
+                           </div>
+                           <div class="item ">
+                              <div class="image-text">
+                                 <img class="img-responsive" src="resources/images/JSW-Nagpur.jpg">
+                                 <div class="image-textoverlay" style="width:32%;">JSW Udaan Scholarships felicitation ceremony at JSW Nagpur plant</div>
+                              </div>
+                           </div>
+                           <div class="item ">
+                              <div class="image-text">
+                                 <img class="img-responsive" src="resources/images/JSW-salem.jpg">
+                                 <div class="image-textoverlay" style="width:32%;">JSW Udaan Scholarships felicitation ceremony at JSW Salem plant</div>
+                              </div>
+                           </div>
+                           <div class="item ">
+                              <div class="image-text">
+                                 <img class="img-responsive" src="resources/images/JSW-Vasind.jpg">
+                                 <div class="image-textoverlay" style="width:32%;">JSW Udaan Scholarships felicitation ceremony at JSW Vasind plant</div>
+                              </div>
+                           </div>
+                           <div class="item ">
+                              <div class="image-text">
+                                 <img class="img-responsive" src="resources/images/Provident.jpg">
+                                 <div class="image-textoverlay" style="width:32%;">Sahayata in association with Provident Housing Ltd offers scholarships to students of Goa Institutes</div>
+                              </div>
+                           </div>
+                           <div class="item ">
+                              <div class="image-text">
+                                 <img class="img-responsive" src="resources/images/Timken.jpg">
+                                 <div class="image-textoverlay" style="width:32%;">Timken Scholarships felicitation ceremony</div>
+                              </div>
+                           </div>
+                        </div>
+                        <a class="left carousel-control" href="#carousel-news" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                        <a class="right carousel-control" href="#carousel-news" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <!---news&media end-->
+      <!--Modal: modalSocial-->
+      <div class="modal fade" id="modalSocial" tabindex="-1" role="dialog"
+         aria-labelledby="myModalLabel" aria-hidden="true" data-backdrop="static">
+         <div class="modal-dialog cascading-modal modal-lg " role="document">
+            <!--Content-->
+            <div class="modal-content align-center">
+               <!--Header-->
+               <div class="modal-header warning-header align-header">
+                  <h3 class="title">Disclaimer</h3>
+               </div>
+               <!--Body-->
+               <div class="modal-body mb-0 text-center">
+                  <p class="black-text font-lable text-justify">Sahayata
+                     is a platform by Protean eGov Technologies Limited (Formerly  NSDL e-Governance Infrastructure Limited) for applying to various scholarships
+                     provided by corporates. Sahayata does not charge any fees to
+                     applicants in any way to apply for scholarships. 
+                  </p>
+                  <p class="black-text font-lable text-justify">
+                     Awarding of scholarship is the sole discretion right of a
+                     corporate. 
+                  </p>
+                  <p class="black-text font-lable text-justify">
+                     Applying to scholarships does not in any way guarantee the award
+                     of scholarship. 
+                  </p>
+                  <p class="black-text font-lable text-justify">
+                     Sahayata reserves the right to withdraw or amend any listed
+                     scholarship without prior notification.
+                  </p>
+                  <p class="black-text font-lable text-justify">
+                     Scholarships are offered subject to funding and availability.
+                  </p>
+                  <p class="black-tex font-lable text-justify">
+                     Sahayata or Protean eGov Technologies Limited (Formerly NSDL e-Governance Infrastructure Limited) will not be liable for any loss or damage
+                     that may be suffered or incurred directly or indirectly by
+                     applicants while dealing with any unauthorized
+                     individuals/entities and person/officer/ director/staff associated
+                     with such unauthorized entities. Protean eGov Technologies Limited (Formerly  NSDL e-Governance Infrastructure Limited) is also not liable for
+                     sharing personal information to such entities or their
+                     representatives or on their online website/portals as well as
+                     for supplying payment credentials on such websites/portals or
+                     making online/physical instrument payment to such unauthorized individuals/entities.
+                  </p>
+               </div>
+               <div class="modal-footer justify-content-center align-header ">
+                  <a type="button" class="btn btn-warning warning-header" data-dismiss="modal">Continue</a>
+                  <!--             <a type="button" class="btn btn-outline-success waves-effect" data-dismiss="modal">No, thanks</a>
+                     -->
+               </div>
+            </div>
+            <!--/.Content-->
+         </div>
+      </div>
+      <!--Modal: modalSocial-->
+      <footer>
+         <!--footer-->
+         <div class="container-fluid no-padding">
+            <div class="row">
+               <div class="footer-main">
+                  <div class="border-between">
+                     <div class="col-md-3" style="background-color: #e5e5e5;">
+                        <h4 class="footer-title">Contact us</h4>
+                        <div class="contact-text">
+                        <p>Protean eGov Technologies Limited (CIN U72900MH1995PLC095642)</p>
+                           <p style="color:#FF0000;" >(Formerly  NSDL e-Governance Infrastructure Limited)<p>
+                           <div class="footer-address">
+                              <ul>
+                                 <li><i class="fa fa-map-marker" aria-hidden="true"></i>Times Tower, 1st Floor, Kamala Mills Compound, Lower Parel, Mumbai - 400 013.</li>
+                                 <li><i class="fa fa-phone" aria-hidden="true"></i>(022) 4090 4484</li>
+                                 <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:vidyasaarathi@nsdl.co.in &#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;"> vidyasaarathi@nsdl.co.in</a></li>
+                              </ul>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="col-md-3" style="background-color: #e5e5e5;">
+                        <div class="footer-links">
+                           <ul>
+                              <li><a href="" style="color:#27335d">Privacy Policy</a></li>
+                              <li><a href="" style="color:#27335d">Terms of use</a></li>
+                              <li><a href="AboutUs.html" style="color:#27335d">About Us</a></li>
+                              <!-- <li><a href="" style="color:#27335d">Media</a></li> -->
+                           </ul>
+                        </div>
+                     </div>
+                     <div class="col-md-3" style="background-color: #e5e5e5;">
+                        <div class="footer-info">
+                           <h4>Sahayata is powered by</h4>
+                           <!-- <a href="https://egov-nsdl.co.in/" target="_blank"><img src="resources/images/NewNSDL.png"></a> -->
+                           <a href="https://egov-nsdl.co.in/" target="_blank"><img src="images/protean_logo.png" width="45%" ></a>
+                           <a href="http://www.tiss.edu/" target="_blank"><img src="resources/images/NewTISS.png" width="25%" style="margin-bottom:50px"></a>
+                        </div>
+                     </div>
+                     <div class="col-md-3">
+                        <div class="footer-social footer-info">
+                        <h4>Follow us on social media to know about upcoming scholarships</h4>
+                        <br />
+                           <ul>
+							  <a href="" target="_blank">
+                                 <li><img src="resources/images/facebook.png"></li>
+                              </a>
+                              <a href="" target="_blank">
+                                 <li><img src="resources/images/twitter.png"></li>
+                              </a>
+                              <a href="" target="_blank">
+                                 <li><img src="resources/images/ld.png"></li>
+                              </a>
+                              <a href="" target="_blank">
+                                 <li><img src="resources/images/instagram.png"></li>
+                              </a>
+                              <a href="" target="_blank">
+                                 <li><img src="resources/images/youtube.png"></li>
+                              </a>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <!--footr end-->
+      </footer>
+      <!--copyright-->
+      <div class="container-fluid no-padding">
+         <div class="row">
+            <div class="copy">
+            
+               <p class="footer-copy">Protean eGov Technologies Ltd. 
+                  Copyright &#169; 2017 Sahayata
+               </p>
+               <p>Best viewed in Chrome, Mozilla & Internet Explorer 10+</p>
+            </div>
+         </div>
+      </div>
+      <!--copyright end-->
+   </body>
+   <!--       javascript loading  after page load as per report gtmatrix-->
+      <script src="resources/js/index_js/jquery1.11.3.min.js"></script>
+      <script src="resources/js/aos.js"></script>
+      <script src="resources/js/index_js/bootstrap3.3.5.min.js"></script>
+      <script src="resources/js/index_js/slick1.9.0.min.js"></script>
+      <script src="resources/dist/sweetalert-dev.min.js"></script>
+   <script>
+   $(document).ready(function(){if(document.cookie.indexOf("visited=true")==-1){$("#modalSocial").modal({show:true})}$("#Carousel").carousel({interval:3e3});$("#carousel-news").carousel({interval:3e3});AOS.init({offset:100,duration:800,easing:"ease-in-sine",once:true});$(".logo-slider").slick({dots:false,vertical:false,centerMode:false,slidesToShow:4,slidesToScroll:1,autoplay:true,autoplaySpeed:2e3,responsive:[{breakpoint:567,settings:{slidesToShow:1,slidesToScroll:1}}]});var offset=$(".count-section").offset();console.log(offset.top);$(window).scroll(startCounter);function startCounter(){if($(window).scrollTop()>offset.top-600){$(window).off("scroll");$(".counts").each(function(){$(this).prop("Counter",0).animate({Counter:$(this).text()},{duration:4e3,easing:"swing",step:function(now){$(this).text(Math.ceil(now))}})})}}});function submitForm(entityType){document.getElementById("entityType").value=entityType;document.getElementById("registerEntityForm").submit()}function openLoginWindow(){var params=["location=1","menubar=0","resizable=1","scrollbars=1","directories=0","height="+screen.height,"width="+screen.width].join(",");var popup=window.open("login","loginWindow",params);popup.moveTo(0,0)}$("#RegisterAsStudent").click(function(){location.href="registration"});$("#RegisterAsSchool").click(function(){submitForm("inst")});$("#RegisterAsFundProvider").click(function(){submitForm("efp")});
+   </script>
+
+
+</html>
